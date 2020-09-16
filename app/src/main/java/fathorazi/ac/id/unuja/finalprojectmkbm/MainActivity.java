@@ -324,6 +324,10 @@ public class MainActivity extends AppCompatActivity {
                                     }
 
                                     spinner_agama.setSelection(((ArrayAdapter<String>)spinner_agama.getAdapter()).getPosition(jsonObject.getString("agama")));
+
+                                    button_simpan.setVisibility(View.GONE);
+                                    button_update.setVisibility(View.VISIBLE);
+                                    button_hapus.setVisibility(View.VISIBLE);
                                 }
 
                             } catch (JSONException e) {
@@ -473,6 +477,10 @@ public class MainActivity extends AppCompatActivity {
                                     editText_desa.setText("");
                                     editText_kecamatan.setText("");
                                     editText_kelas.setText("");
+
+                                    button_simpan.setVisibility(View.VISIBLE);
+                                    button_update.setVisibility(View.GONE);
+                                    button_hapus.setVisibility(View.GONE);
                                 }
 
                             } catch (JSONException e) {
@@ -559,6 +567,10 @@ public class MainActivity extends AppCompatActivity {
                                     editText_desa.setText("");
                                     editText_kecamatan.setText("");
                                     editText_kelas.setText("");
+
+                                    button_simpan.setVisibility(View.VISIBLE);
+                                    button_update.setVisibility(View.GONE);
+                                    button_hapus.setVisibility(View.GONE);
                                 }
 
 
