@@ -92,7 +92,7 @@
 
                         <EditText
                             android:id="@+id/ed_nis"
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="5dp"
                             android:layout_weight="1"
@@ -108,24 +108,38 @@
                             android:textSize="14sp"
                             android:theme="@style/StyleInput" />
 
-                        <EditText
-                            android:id="@+id/ed_nama"
-                            android:layout_width="0dp"
+                        <Button
+                            android:id="@+id/bt_cari"
+                            android:layout_width="100dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="5dp"
-                            android:layout_weight="1"
-                            android:drawableStart="@drawable/ic_person_icon"
-                            android:drawablePadding="10dp"
-                            android:fontFamily="@font/roboto_regular"
-                            android:hint="Nama"
-                            android:imeOptions="actionNext"
-                            android:inputType="textCapWords"
-                            android:paddingBottom="20dp"
-                            android:textColor="@color/txt_black"
-                            android:textColorHint="@color/sub_txt_hint"
-                            android:textSize="14sp"
-                            android:theme="@style/StyleInput" />
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginRight="4dp"
+                            android:background="@drawable/rectangle_black"
+                            android:fontFamily="@font/sfpro_display_medium"
+                            android:text="Cari"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            android:textSize="12sp" />
+
+
                     </LinearLayout>
+
+                    <EditText
+                        android:id="@+id/ed_nama"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:drawableStart="@drawable/ic_major_icon"
+                        android:drawablePadding="10dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:hint="Nama"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:paddingBottom="20dp"
+                        android:textColor="@color/txt_black"
+                        android:textColorHint="@color/sub_txt_hint"
+                        android:textSize="14sp"
+                        android:theme="@style/StyleInput" />
 
                     <EditText
                         android:id="@+id/ed_nipd"
