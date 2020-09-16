@@ -134,7 +134,7 @@
                         android:fontFamily="@font/roboto_regular"
                         android:hint="Nama"
                         android:imeOptions="actionNext"
-                        android:inputType="number"
+                        android:inputType="textCapWords"
                         android:paddingBottom="20dp"
                         android:textColor="@color/txt_black"
                         android:textColorHint="@color/sub_txt_hint"
