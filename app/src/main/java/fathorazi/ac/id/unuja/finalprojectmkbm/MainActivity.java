@@ -19,22 +19,24 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         editText_nis = findViewById(R.id.ed_nis);
-        editText_nis = findViewById(R.id.ed_nama);
-        editText_nis = findViewById(R.id.ed_nipd);
-        editText_nis = findViewById(R.id.ed_tempat);
-        editText_nis = findViewById(R.id.ed_tgl);
-        editText_nis = findViewById(R.id.ed_nik);
-        editText_nis = findViewById(R.id.ed_alamat);
-        editText_nis = findViewById(R.id.ed_rt);
-        editText_nis = findViewById(R.id.ed_rw);
-        editText_nis = findViewById(R.id.ed_desa);
-        editText_nis = findViewById(R.id.ed_kecamatan);
-        editText_nis = findViewById(R.id.ed_kelas);
+        editText_nama = findViewById(R.id.ed_nama);
+        editText_nipd = findViewById(R.id.ed_nipd);
+        editText_tempat = findViewById(R.id.ed_tempat);
+        editText_tgl = findViewById(R.id.ed_tgl);
+        editText_nik = findViewById(R.id.ed_nik);
+        editText_alamat = findViewById(R.id.ed_alamat);
+        editText_rt = findViewById(R.id.ed_rt);
+        editText_rw = findViewById(R.id.ed_rw);
+        editText_desa = findViewById(R.id.ed_desa);
+        editText_kecamatan = findViewById(R.id.ed_kecamatan);
+        editText_kelas = findViewById(R.id.ed_kelas);
 
         radioButton_l = findViewById(R.id.rb_l);
-        radioButton_l = findViewById(R.id.rb_p);
+        radioButton_p = findViewById(R.id.rb_p);
 
         spinner_agama = findViewById(R.id.sp_agama);
+
+
 
 
     }
