@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_gray"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:paddingBottom="30dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="26dp"
+                android:fontFamily="@font/sfpro_display_semibold"
+                android:lineSpacingExtra="1dp"
+                android:text="Aplikasi CRUD Data Siswa"
+                android:textAlignment="center"
+                android:textColor="@color/dark_black"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/roboto_regular"
+                android:lineSpacingExtra="1dp"
+                android:text="Final Project \nModul Kegiatan Belajar Mandiri \n(MKBM)"
+                android:textAlignment="center"
+                android:textColor="@color/txt_hint"
+                android:textSize="14sp" />
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginRight="15dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:orientation="vertical"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingBottom="27dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="19dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="Selamat Datang"
+                        android:textColor="@color/bg_color"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="14dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="Input Data Siswa"
+                        android:textAlignment="center"
+                        android:textColor="@color/txt_black"
+                        android:textSize="18sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25dp"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            android:layout_weight="1"
+                            android:drawableStart="@drawable/ic_person_icon"
+                            android:drawablePadding="10dp"
+                            android:fontFamily="@font/roboto_regular"
+                            android:hint="NIS"
+                            android:imeOptions="actionNext"
+                            android:inputType="number"
+                            android:paddingBottom="20dp"
+                            android:textColor="@color/txt_black"
+                            android:textColorHint="@color/sub_txt_hint"
+                            android:textSize="14sp"
+                            android:theme="@style/StyleInput" />
+
+                        <EditText
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:drawableStart="@drawable/ic_person_icon"
+                            android:drawablePadding="10dp"
+                            android:fontFamily="@font/roboto_regular"
+                            android:hint="Nama"
+                            android:imeOptions="actionNext"
+                            android:inputType="textCapWords"
+                            android:paddingBottom="20dp"
+                            android:textColor="@color/txt_black"
+                            android:textColorHint="@color/sub_txt_hint"
+                            android:textSize="14sp"
+                            android:theme="@style/StyleInput" />
+                    </LinearLayout>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:drawableStart="@drawable/ic_major_icon"
+                        android:drawablePadding="10dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:hint="NIPD"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:paddingBottom="20dp"
+                        android:textColor="@color/txt_black"
+                        android:textColorHint="@color/sub_txt_hint"
+                        android:textSize="14sp"
+                        android:theme="@style/StyleInput" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:orientation="horizontal">
+
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/radioButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="L"
+                                android:textColor="@color/sub_txt_hint" />
+
+                            <RadioButton
+                                android:id="@+id/radioButton2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="P"
+                                android:textColor="@color/sub_txt_hint" />
+
+                        </RadioGroup>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1.3dp"
+                        android:layout_marginTop="5dp"
+                        android:background="#e2e2e2" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            android:layout_weight="1"
+                            android:drawableStart="@drawable/ic_calender_iocn"
+                            android:drawablePadding="10dp"
+                            android:fontFamily="@font/roboto_regular"
+                            android:hint="Tempat"
+                            android:imeOptions="actionNext"
+                            android:inputType="textCapWords"
+                            android:paddingBottom="20dp"
+                            android:textColor="@color/txt_black"
+                            android:textColorHint="@color/sub_txt_hint"
+                            android:textSize="14sp"
+                            android:theme="@style/StyleInput" />
+
+                        <EditText
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:drawableStart="@drawable/ic_calender_iocn"
+                            android:drawablePadding="10dp"
+                            android:focusable="false"
+                            android:fontFamily="@font/roboto_regular"
+                            android:hint="Tanggal Lahir"
+                            android:paddingBottom="20dp"
+                            android:textColor="@color/txt_black"
+                            android:textColorHint="@color/sub_txt_hint"
+                            android:textSize="14sp"
+                            android:theme="@style/StyleInput" />
+                    </LinearLayout>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:drawableStart="@drawable/ic_person_icon"
+                        android:drawablePadding="10dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:hint="NIK"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:paddingBottom="20dp"
+                        android:textColor="@color/txt_black"
+                        android:textColorHint="@color/sub_txt_hint"
+                        android:textSize="14sp"
+                        android:theme="@style/StyleInput" />
+
+
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:dropDownVerticalOffset="35dp"
+                        android:paddingHorizontal="0dp"
+                        android:paddingRight="8.5dp"
+                        android:entries="@array/agama"
+                        android:layout_marginTop="16dp"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1.3dp"
+                        android:layout_marginTop="5dp"
+                        android:background="#e2e2e2" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:drawableStart="@drawable/ic_location_gray"
+                        android:drawablePadding="10dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:hint="Alamat"
+                        android:imeOptions="actionNext"
+                        android:inputType="textCapWords"
+                        android:paddingBottom="20dp"
+                        android:textColor="@color/txt_black"
+                        android:textColorHint="@color/sub_txt_hint"
+                        android:textSize="14sp"
+                        android:theme="@style/StyleInput" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            android:layout_weight="1"
+                            android:drawableStart="@drawable/ic_location_gray"
+                            android:drawablePadding="10dp"
+                            android:fontFamily="@font/roboto_regular"
+                            android:hint="RT"
+                            android:imeOptions="actionNext"
+                            android:inputType="number"
+                            android:paddingBottom="20dp"
+                            android:textColor="@color/txt_black"
+                            android:textColorHint="@color/sub_txt_hint"
+                            android:textSize="14sp"
+                            android:theme="@style/StyleInput" />
+
+                        <EditText
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:drawableStart="@drawable/ic_location_gray"
+                            android:drawablePadding="10dp"
+                            android:fontFamily="@font/roboto_regular"
+                            android:hint="RW"
+                            android:imeOptions="actionNext"
+                            android:inputType="number"
+                            android:paddingBottom="20dp"
+                            android:textColor="@color/txt_black"
+                            android:textColorHint="@color/sub_txt_hint"
+                            android:textSize="14sp"
+                            android:theme="@style/StyleInput" />
+                    </LinearLayout>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:drawableStart="@drawable/ic_location_gray"
+                        android:drawablePadding="10dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:hint="Desa"
+                        android:imeOptions="actionNext"
+                        android:inputType="textCapWords"
+                        android:paddingBottom="20dp"
+                        android:textColor="@color/txt_black"
+                        android:textColorHint="@color/sub_txt_hint"
+                        android:textSize="14sp"
+                        android:theme="@style/StyleInput" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:drawableStart="@drawable/ic_location_gray"
+                        android:drawablePadding="10dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:hint="Kecamatan"
+                        android:imeOptions="actionNext"
+                        android:inputType="textCapWords"
+                        android:paddingBottom="20dp"
+                        android:textColor="@color/txt_black"
+                        android:textColorHint="@color/sub_txt_hint"
+                        android:textSize="14sp"
+                        android:theme="@style/StyleInput" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:drawableStart="@drawable/ic_location_gray"
+                        android:drawablePadding="10dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:hint="Kelas"
+                        android:imeOptions="actionNext"
+                        android:inputType="textCapWords"
+                        android:paddingBottom="20dp"
+                        android:textColor="@color/txt_black"
+                        android:textColorHint="@color/sub_txt_hint"
+                        android:textSize="14sp"
+                        android:theme="@style/StyleInput" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25dp"
+                        android:background="@drawable/rectangle_black"
+                        android:fontFamily="@font/sfpro_display_medium"
+                        android:text="Simpan"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
