@@ -160,6 +160,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:checked="true"
                                 android:text="L"
                                 android:textColor="@color/sub_txt_hint" />
 
@@ -359,7 +360,7 @@
                         android:drawablePadding="10dp"
                         android:fontFamily="@font/roboto_regular"
                         android:hint="Kelas"
-                        android:imeOptions="actionNext"
+                        android:imeOptions="actionSend"
                         android:inputType="textCapWords"
                         android:paddingBottom="20dp"
                         android:textColor="@color/txt_black"
@@ -367,17 +368,57 @@
                         android:textSize="14sp"
                         android:theme="@style/StyleInput" />
 
-                    <Button
-                        android:id="@+id/bt_action"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="25dp"
-                        android:background="@drawable/rectangle_black"
-                        android:fontFamily="@font/sfpro_display_medium"
-                        android:text="Simpan"
-                        android:textAllCaps="false"
-                        android:textColor="@color/white"
-                        android:textSize="12sp" />
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/bt_simpan"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginTop="25dp"
+                            android:layout_marginRight="4dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/rectangle_black"
+                            android:fontFamily="@font/sfpro_display_medium"
+                            android:text="Simpan"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            android:textSize="12sp" />
+
+                        <Button
+                            android:id="@+id/bt_edit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginTop="25dp"
+                            android:layout_marginRight="4dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/rectangle_black"
+                            android:fontFamily="@font/sfpro_display_medium"
+                            android:text="Edit"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            android:textSize="12sp" />
+
+                        <Button
+                            android:id="@+id/bt_hapus"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginTop="25dp"
+                            android:layout_marginRight="4dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/rectangle_black"
+                            android:fontFamily="@font/sfpro_display_medium"
+                            android:text="Hapus"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
