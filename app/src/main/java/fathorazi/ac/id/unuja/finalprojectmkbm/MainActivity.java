@@ -204,7 +204,7 @@ public class MainActivity extends AppCompatActivity {
                                 JSONObject jsonObject = new JSONObject(response);
                                 Toast.makeText(MainActivity.this, jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
 
-                                if(jsonObject.getString("message").equals("Berhasil")){
+                                if(jsonObject.getInt("success") == 1){
                                     editText_nis.setText("");
                                     editText_nama.setText("");
                                     editText_nipd.setText("");
@@ -272,10 +272,6 @@ public class MainActivity extends AppCompatActivity {
         button_cari.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                nis = editText_nis.getText().toString();
-                boolean cancel = false;
-                View focusView = null;
-
                 editText_nama.setText("");
                 editText_nipd.setText("");
                 editText_tempat.setText("");
@@ -287,6 +283,10 @@ public class MainActivity extends AppCompatActivity {
                 editText_desa.setText("");
                 editText_kecamatan.setText("");
                 editText_kelas.setText("");
+
+                nis = editText_nis.getText().toString();
+                boolean cancel = false;
+                View focusView = null;
 
                 if (TextUtils.isEmpty(nis)) {
                     editText_nis.setError("Silahkan Isi NISN Anda");
@@ -349,6 +349,241 @@ public class MainActivity extends AppCompatActivity {
 
                 }
 
+            }
+        });
+
+        button_update = findViewById(R.id.bt_edit);
+        button_update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                editText_nama.setError(null);
+                editText_nipd.setError(null);
+                editText_tempat.setError(null);
+                editText_tgl.setError(null);
+                editText_nik.setError(null);
+                editText_alamat.setError(null);
+                editText_rt.setError(null);
+                editText_rw.setError(null);
+                editText_desa.setError(null);
+                editText_kecamatan.setError(null);
+                editText_kelas.setError(null);
+
+                nama = editText_nama.getText().toString();
+                nipd = editText_nipd.getText().toString();
+                tempat = editText_tempat.getText().toString();
+                tgl = editText_tgl.getText().toString();
+                nik = editText_nik.getText().toString();
+                alamat = editText_alamat.getText().toString();
+                rt = editText_rt.getText().toString();
+                rw = editText_rw.getText().toString();
+                desa = editText_desa.getText().toString();
+                kecamatan = editText_kecamatan.getText().toString();
+                kelas = editText_kelas.getText().toString();
+
+                boolean cancel = false;
+                View focusView = null;
+
+                if (TextUtils.isEmpty(nama)) {
+                    editText_nama.setError("Silahkan Isi Nama Anda");
+                    focusView = editText_nama;
+                    cancel = true;
+                }
+
+                if (TextUtils.isEmpty(nipd)) {
+                    editText_nipd.setError("Silahkan Isi NIPD Anda");
+                    focusView = editText_nipd;
+                    cancel = true;
+                }
+
+                if (TextUtils.isEmpty(tempat)) {
+                    editText_tempat.setError("Silahkan Isi Tempat Lahir Anda");
+                    focusView = editText_tempat;
+                    cancel = true;
+                }
+
+                if (TextUtils.isEmpty(tgl)) {
+                    editText_tgl.setError("Silahkan Isi Tanggal Lahir Anda");
+                    focusView = editText_tgl;
+                    cancel = true;
+                }
+
+                if (TextUtils.isEmpty(nik)) {
+                    editText_nik.setError("Silahkan Isi NIK Anda");
+                    focusView = editText_nik;
+                    cancel = true;
+                }
+
+                if (TextUtils.isEmpty(alamat)) {
+                    editText_alamat.setError("Silahkan Isi Alamat Anda");
+                    focusView = editText_alamat;
+                    cancel = true;
+                }
+
+                if (TextUtils.isEmpty(rt)) {
+                    editText_rt.setError("Silahkan Isi RT Anda");
+                    focusView = editText_rt;
+                    cancel = true;
+                }
+
+                if (TextUtils.isEmpty(rw)) {
+                    editText_rw.setError("Silahkan Isi RW Anda");
+                    focusView = editText_rw;
+                    cancel = true;
+                }
+
+                if (TextUtils.isEmpty(desa)) {
+                    editText_desa.setError("Silahkan Isi Desa Anda");
+                    focusView = editText_desa;
+                    cancel = true;
+                }
+
+                if (TextUtils.isEmpty(kecamatan)) {
+                    editText_kecamatan.setError("Silahkan Isi Kecamatan Anda");
+                    focusView = editText_kecamatan;
+                    cancel = true;
+                }
+
+                if (TextUtils.isEmpty(kelas)) {
+                    editText_kelas.setError("Silahkan Isi kelas Anda");
+                    focusView = editText_kelas;
+                    cancel = true;
+                }
+
+                if (cancel){
+                    focusView.requestFocus();
+                }else{
+                    StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://siswa.le-melle.online/edit.php", new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            try {
+                                JSONObject jsonObject = new JSONObject(response);
+                                Toast.makeText(MainActivity.this, jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+
+                                if(jsonObject.getInt("success") == 1){
+                                    editText_nis.setText("");
+                                    editText_nama.setText("");
+                                    editText_nipd.setText("");
+                                    editText_tempat.setText("");
+                                    editText_tgl.setText("");
+                                    editText_nik.setText("");
+                                    editText_alamat.setText("");
+                                    editText_rt.setText("");
+                                    editText_rw.setText("");
+                                    editText_desa.setText("");
+                                    editText_kecamatan.setText("");
+                                    editText_kelas.setText("");
+                                }
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Toast.makeText(MainActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    }){
+                        @Override
+                        protected Map<String, String> getParams() throws AuthFailureError {
+                            Map<String, String> params = new HashMap<>();
+                            params.put("nisn", nis);
+                            params.put("nama", nama);
+                            params.put("nipd", nipd);
+                            String jk;
+                            if(radioButton_l.isChecked()){
+                                jk = "L";
+                            }else{
+                                jk = "P";
+                            }
+                            params.put("jk", jk);
+                            params.put("tempat", tempat);
+                            params.put("tgl", tgl);
+                            params.put("nik", nik);
+
+                            String agama = spinner_agama.getSelectedItem().toString();
+                            params.put("agama", agama);
+
+                            params.put("alamat", alamat);
+                            params.put("rt", rt);
+                            params.put("rw", rw);
+                            params.put("desa", desa);
+                            params.put("kecamatan", kecamatan);
+                            params.put("kelas", kelas);
+                            return params;
+                        }
+                    };
+
+                    RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.this);
+                    requestQueue.add(stringRequest);
+
+                }
+            }
+        });
+
+        button_hapus = findViewById(R.id.bt_hapus);
+        button_hapus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nis = editText_nis.getText().toString();
+                boolean cancel = false;
+                View focusView = null;
+
+                if (TextUtils.isEmpty(nis)) {
+                    editText_nis.setError("Silahkan Isi NISN Anda");
+                    focusView = editText_nis;
+                    cancel = true;
+                }
+
+                if (cancel){
+                    focusView.requestFocus();
+                }else{
+                    StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://siswa.le-melle.online/hapus.php", new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            try {
+                                JSONObject jsonObject = new JSONObject(response);
+                                Toast.makeText(MainActivity.this, jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+
+                                if(jsonObject.getInt("success") == 1){
+                                    editText_nis.setText("");
+                                    editText_nama.setText("");
+                                    editText_nipd.setText("");
+                                    editText_tempat.setText("");
+                                    editText_tgl.setText("");
+                                    editText_nik.setText("");
+                                    editText_alamat.setText("");
+                                    editText_rt.setText("");
+                                    editText_rw.setText("");
+                                    editText_desa.setText("");
+                                    editText_kecamatan.setText("");
+                                    editText_kelas.setText("");
+                                }
+
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Toast.makeText(MainActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    }){
+                        @Override
+                        protected Map<String, String> getParams() throws AuthFailureError {
+                            Map<String, String> params = new HashMap<>();
+                            params.put("nisn", nis);
+                            return params;
+                        }
+                    };
+
+                    RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.this);
+                    requestQueue.add(stringRequest);
+
+                }
             }
         });
 
