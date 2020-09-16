@@ -193,7 +193,7 @@ public class MainActivity extends AppCompatActivity {
                 if (cancel){
                     focusView.requestFocus();
                 }else{
-                    StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://siswa.le-melle.online/checkhosting.php", new Response.Listener<String>() {
+                    StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://siswa.le-melle.online/checkandroid.php", new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
                             Toast.makeText(MainActivity.this, response, Toast.LENGTH_SHORT).show();
@@ -203,7 +203,14 @@ public class MainActivity extends AppCompatActivity {
                         public void onErrorResponse(VolleyError error) {
                             Toast.makeText(MainActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
                         }
-                    });
+                    }){
+                        @Override
+                        protected Map<String, String> getParams() throws AuthFailureError {
+                            Map<String, String> params = new HashMap<>();
+                            params.put("nisn", nis);
+                            return params;
+                        }
+                    };
 
                     RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.this);
                     requestQueue.add(stringRequest);
