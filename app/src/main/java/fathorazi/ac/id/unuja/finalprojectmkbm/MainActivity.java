@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.text.format.Time;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText editText_nis, editText_nama, editText_nipd, editText_tempat, editText_tgl, editText_nik, editText_alamat, editText_rt, editText_rw, editText_desa, editText_kecamatan, editText_kelas;
     private RadioButton radioButton_l, radioButton_p;
     private Spinner spinner_agama;
-    private Button button_simpan;
+    private Button button_simpan, button_cari, button_update, button_hapus;
 
     private int mMonth, mYear, mDay;
 
@@ -202,6 +203,22 @@ public class MainActivity extends AppCompatActivity {
                             try {
                                 JSONObject jsonObject = new JSONObject(response);
                                 Toast.makeText(MainActivity.this, jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+
+                                if(jsonObject.getString("message").equals("Berhasil")){
+                                    editText_nis.setText("");
+                                    editText_nama.setText("");
+                                    editText_nipd.setText("");
+                                    editText_tempat.setText("");
+                                    editText_tgl.setText("");
+                                    editText_nik.setText("");
+                                    editText_alamat.setText("");
+                                    editText_rt.setText("");
+                                    editText_rw.setText("");
+                                    editText_desa.setText("");
+                                    editText_kecamatan.setText("");
+                                    editText_kelas.setText("");
+                                }
+
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -238,6 +255,91 @@ public class MainActivity extends AppCompatActivity {
                             params.put("desa", desa);
                             params.put("kecamatan", kecamatan);
                             params.put("kelas", kelas);
+                            return params;
+                        }
+                    };
+
+                    RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.this);
+                    requestQueue.add(stringRequest);
+
+                }
+
+            }
+        });
+
+
+        button_cari = findViewById(R.id.bt_cari);
+        button_cari.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nis = editText_nis.getText().toString();
+                boolean cancel = false;
+                View focusView = null;
+
+                editText_nama.setText("");
+                editText_nipd.setText("");
+                editText_tempat.setText("");
+                editText_tgl.setText("");
+                editText_nik.setText("");
+                editText_alamat.setText("");
+                editText_rt.setText("");
+                editText_rw.setText("");
+                editText_desa.setText("");
+                editText_kecamatan.setText("");
+                editText_kelas.setText("");
+
+                if (TextUtils.isEmpty(nis)) {
+                    editText_nis.setError("Silahkan Isi NISN Anda");
+                    focusView = editText_nis;
+                    cancel = true;
+                }
+
+                if (cancel){
+                    focusView.requestFocus();
+                }else{
+                    StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://siswa.le-melle.online/cari.php", new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            try {
+                                JSONObject jsonObject = new JSONObject(response);
+                                Toast.makeText(MainActivity.this, jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+
+                                if(jsonObject.getInt("success") ==  1){
+                                    editText_nama.setText(jsonObject.getString("nama"));
+                                    editText_nipd.setText(jsonObject.getString("nipd"));
+                                    editText_tempat.setText(jsonObject.getString("tempat"));
+                                    editText_tgl.setText(jsonObject.getString("tgl"));
+                                    editText_nik.setText(jsonObject.getString("nik"));
+                                    editText_alamat.setText(jsonObject.getString("alamat"));
+                                    editText_rt.setText(jsonObject.getString("rt"));
+                                    editText_rw.setText(jsonObject.getString("rw"));
+                                    editText_desa.setText(jsonObject.getString("desa"));
+                                    editText_kecamatan.setText(jsonObject.getString("kecamatan"));
+                                    editText_kelas.setText(jsonObject.getString("kelas"));
+
+                                    if(jsonObject.getString("jk").equals("L")){
+                                        radioButton_l.setChecked(true);
+                                    }else{
+                                        radioButton_p.setChecked(true);
+                                    }
+
+                                    spinner_agama.setSelection(((ArrayAdapter<String>)spinner_agama.getAdapter()).getPosition(jsonObject.getString("agama")));
+                                }
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Toast.makeText(MainActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    }){
+                        @Override
+                        protected Map<String, String> getParams() throws AuthFailureError {
+                            Map<String, String> params = new HashMap<>();
+                            params.put("nisn", nis);
                             return params;
                         }
                     };
