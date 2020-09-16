@@ -23,6 +23,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
@@ -193,10 +196,15 @@ public class MainActivity extends AppCompatActivity {
                 if (cancel){
                     focusView.requestFocus();
                 }else{
-                    StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://siswa.le-melle.online/checkandroid.php", new Response.Listener<String>() {
+                    StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://siswa.le-melle.online/simpan.php", new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
-                            Toast.makeText(MainActivity.this, response, Toast.LENGTH_SHORT).show();
+                            try {
+                                JSONObject jsonObject = new JSONObject(response);
+                                Toast.makeText(MainActivity.this, jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
                         }
                     }, new Response.ErrorListener() {
                         @Override
@@ -208,6 +216,28 @@ public class MainActivity extends AppCompatActivity {
                         protected Map<String, String> getParams() throws AuthFailureError {
                             Map<String, String> params = new HashMap<>();
                             params.put("nisn", nis);
+                            params.put("nama", nama);
+                            params.put("nipd", nipd);
+                            String jk;
+                            if(radioButton_l.isChecked()){
+                                jk = "L";
+                            }else{
+                                jk = "P";
+                            }
+                            params.put("jk", jk);
+                            params.put("tempat", tempat);
+                            params.put("tgl", tgl);
+                            params.put("nik", nik);
+
+                            String agama = spinner_agama.getSelectedItem().toString();
+                            params.put("agama", agama);
+
+                            params.put("alamat", alamat);
+                            params.put("rt", rt);
+                            params.put("rw", rw);
+                            params.put("desa", desa);
+                            params.put("kecamatan", kecamatan);
+                            params.put("kelas", kelas);
                             return params;
                         }
                     };
