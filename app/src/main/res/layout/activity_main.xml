@@ -69,7 +69,7 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="19dp"
                         android:fontFamily="@font/roboto_regular"
-                        android:text="Selamat Datang"
+                        android:text="Silahkan"
                         android:textColor="@color/bg_color"
                         android:textSize="12sp" />
 
@@ -415,7 +415,8 @@
                             android:text="Edit"
                             android:textAllCaps="false"
                             android:textColor="@color/white"
-                            android:textSize="12sp" />
+                            android:textSize="12sp"
+                            android:visibility="gone"/>
 
                         <Button
                             android:id="@+id/bt_hapus"
@@ -430,7 +431,8 @@
                             android:text="Hapus"
                             android:textAllCaps="false"
                             android:textColor="@color/white"
-                            android:textSize="12sp" />
+                            android:textSize="12sp"
+                            android:visibility="gone"/>
                     </LinearLayout>
 
 
